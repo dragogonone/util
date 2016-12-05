@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # unzipがない環境でunzipする
 
 import sys

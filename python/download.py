@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # webからhtmlをダウンロードしてきて保存する
 # option save = trueにすると即保存
 # option save = falseにすると中身をテキストで返す
