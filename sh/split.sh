@@ -14,4 +14,3 @@ LINE_FILE=$(wc -l ${FILENAME} | awk '{print $1}')
 echo ${LINE_FILE}
 LINE_2=`expr ${LINE_FILE} - ${LINE_1}`
 tail -n ${LINE_2} ${FILENAME} > ${FILENAME}.2
-||<
