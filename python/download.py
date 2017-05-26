@@ -26,12 +26,16 @@ def download(url, save=False):
 
 
 def save_image(url, path="./"):
+    if path[-1:] != '/':
+        path += '/'
     res = requests.get(url, stream=True)
     if res.status_code == 200:
         filename = url.split('/')[-1].split('?')[0]
 
-        
-# saveData というバイナリデータを作成
+        #pathを作成
+        if not os.path.exists(path):
+            os.mkdir(path)
+        # saveData というバイナリデータを作成
         saveData = open(path + filename, 'wb');
 
         # saveDataに取得した画像を書き込み
