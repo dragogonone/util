@@ -23,7 +23,20 @@ def download(url, save=False):
         return res.text
     else:
       print("status code is {}".format(res.status_code))
- 
+
+
+def save_image(url, path="./"):
+    res = requests.get(url, stream=True)
+    if res.status_code == 200:
+        filename = url.split('/')[-1].split('?')[0]
+
+        
+# saveData というバイナリデータを作成
+        saveData = open(path + filename, 'wb');
+
+        # saveDataに取得した画像を書き込み
+        saveData.write(res.content);
+        saveData.close()
  
 if __name__ == "__main__":
   if len(sys.argv) < 1:
