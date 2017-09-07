@@ -11,12 +11,12 @@ import shutil
 import requests
 
 def download(url, save=False):
-    file_name = os.path.basename(url)
     res = requests.get(url, stream=True)
     if res.status_code == 200:
       res.encoding = res.apparent_encoding
       if save:
         with open(file_name, 'w') as f:
+          file_name = os.path.basename(url) or 'index.html'
           f.write(res.text)
         print("completed download")
       else:
